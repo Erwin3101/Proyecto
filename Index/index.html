@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Pedagógico: Alfabetización Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+        .gradient-bg {
+            background-color: #d9e2f3; /* Color sólido azul claro similar a la imagen */
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none; 
+        }
+        .modal.active {
+            display: flex; 
+        }
+        .quote-box {
+            background-color: #ffffff;
+            border-left: 5px solid #60a5fa; /* blue-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="nav-link text-2xl font-bold text-blue-800 flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>Innova-Nugent
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-semibold flex items-center"><i class="fas fa-home mr-2"></i>Inicio</a>
+                
+                <!-- Menú Desplegable Nosotros -->
+                <div class="relative">
+                    <button id="nosotros-btn" class="text-gray-600 hover:text-blue-600 font-semibold flex items-center">
+                        <i class="fas fa-info-circle mr-2"></i>Nosotros<i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="nosotros-menu" class="hidden absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                        <a href="#quienes-somos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white nav-link">¿Quiénes Somos?</a>
+                        <a href="#mision-vision" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white nav-link">Misión, Visión y Valores</a>
+                        <a href="#objetivos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white nav-link">Objetivos</a>
+                        <a href="#marco-legal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white nav-link">Marco Legal</a>
+                        <a href="#oferta-academica" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white nav-link">Oferta Académica</a>
+                    </div>
+                </div>
+
+                <a href="#docentes" class="nav-link text-gray-600 hover:text-blue-600 font-semibold flex items-center"><i class="fas fa-chalkboard-teacher mr-2"></i>Docentes</a>
+                <a href="#estudiantes" class="nav-link text-gray-600 hover:text-blue-600 font-semibold flex items-center"><i class="fas fa-user-graduate mr-2"></i>Estudiantes</a>
+                <a href="#recursos" class="nav-link text-gray-600 hover:text-blue-600 font-semibold flex items-center"><i class="fas fa-book-open mr-2"></i>Recursos</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#home" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Inicio</a>
+            <a href="#quienes-somos" class="block py-2 nav-link text-gray-600 hover:text-blue-600">¿Quiénes Somos?</a>
+            <a href="#mision-vision" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Misión, Visión y Valores</a>
+            <a href="#objetivos" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Objetivos</a>
+            <a href="#marco-legal" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Marco Legal</a>
+            <a href="#oferta-academica" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Oferta Académica</a>
+            <a href="#docentes" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Docentes</a>
+            <a href="#estudiantes" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Estudiantes</a>
+            <a href="#recursos" class="block py-2 nav-link text-gray-600 hover:text-blue-600">Recursos</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        
+        <!-- Home Section -->
+        <section id="home" class="page-section text-center mb-16">
+            <div class="gradient-bg rounded-xl p-8 md:p-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">Alfabetización Digital para una Convivencia Segura</h1>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                    Proyecto pedagógico del Centro Educativo Ángela González Nugent para desarrollar competencias informáticas en docentes y estudiantes.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div onclick="showPage('docentes')" class="card-hover cursor-pointer bg-white p-8 rounded-lg shadow-lg transition-all duration-300">
+                    <i class="fas fa-chalkboard-teacher text-5xl text-blue-500 mb-4"></i>
+                    <h2 class="text-2xl font-bold mb-2">Portal para Docentes</h2>
+                    <p>Accede a módulos de formación, herramientas pedagógicas y la comunidad de práctica "Innova-Nugent".</p>
+                </div>
+                <div onclick="showPage('estudiantes')" class="card-hover cursor-pointer bg-white p-8 rounded-lg shadow-lg transition-all duration-300">
+                    <i class="fas fa-user-graduate text-5xl text-green-500 mb-4"></i>
+                    <h2 class="text-2xl font-bold mb-2">Espacio para Estudiantes</h2>
+                    <p>Participa en talleres interactivos sobre seguridad digital y cómo combatir la desinformación.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 space-y-8">
+                <div class="quote-box p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+                    <p class="text-xl italic text-gray-700">"Tenemos que preparar a los estudiantes para su futuro, no para nuestro pasado."</p>
+                    <p class="text-right font-semibold text-gray-600 mt-2">- Ian Jukes</p>
+                </div>
+                <div class="quote-box p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+                    <p class="text-xl italic text-gray-700">"La educación no cambia al mundo. Cambia a las personas que van a cambiar el mundo."</p>
+                    <p class="text-right font-semibold text-gray-600 mt-2">- Paulo Freire</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quienes Somos Section -->
+        <section id="quienes-somos" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">¿Quiénes Somos?</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-lg leading-relaxed">
+                <p class="mb-4">El <strong>Centro Educativo Ángela González Nugent</strong> es una institución pública del nivel secundario, comprometida con la formación de jóvenes en la comunidad de La Sabana, municipio de Luperón, Puerto Plata. Dependemos del Ministerio de Educación de la República Dominicana (MINERD) y pertenecemos al Distrito Educativo 04 de la Regional 11.</p>
+                <p class="mb-4">Nuestra institución está dirigida por la directora Odalia Mercedes Zapata y cuenta con un equipo de gestión que incluye un Coordinador Pedagógico y una Orientadora. Con una matrícula de 150 estudiantes y un cuerpo docente de 15 maestros, nos esforzamos por ofrecer una educación de calidad que responda a las necesidades de nuestro tiempo.</p>
+                <p>En el corazón de una comunidad con una economía diversificada, entendemos la importancia de preparar a nuestros estudiantes para un futuro digital. Por ello, hemos identificado la necesidad de fortalecer la integración de la tecnología en nuestras aulas, abordando problemas como el bajo nivel de alfabetización digital y el uso inadecuado de las redes sociales, para transformar estas áreas en oportunidades de crecimiento y aprendizaje seguro.</p>
+            </div>
+        </section>
+
+        <!-- Mision, Vision y Valores Section -->
+        <section id="mision-vision" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Filosofía Institucional</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg space-y-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-700 mb-3 border-b-2 border-blue-200 pb-2">Misión</h3>
+                    <p class="text-lg">Ofrecer educación inicial y primaria, educando en valores éticos, espirituales y morales, brindando una educación de calidad, donde los estudiantes puedan desarrollar sus Competencias individuales y grupales, para ser exitosos en sus estudios posteriores, guiados por un equipo de profesores calificados.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-3 border-b-2 border-green-200 pb-2">Visión</h3>
+                    <p class="text-lg">Ser un Centro Educativo que vele por el mejoramiento continuo de los niños y las niñas, en sus condiciones físicas, sociales y pedagógicas para alcanzar los más altos estándares de calidad, que garanticen cambios en la sociedad.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-purple-700 mb-3 border-b-2 border-purple-200 pb-2">Valores</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li><strong>Responsabilidad:</strong> Característica positiva de las personas que son capaces de comprometerse y actuar de forma correcta.</li>
+                        <li><strong>Trabajo en equipo:</strong> Esfuerzo integrado de un conjunto de personas para la realización de un proyecto o cosas.</li>
+                        <li><strong>Empatía:</strong> Capacidad de percibir, compartir y comprender lo que otro puede sentir, preocupándose por experiencias ajenas.</li>
+                        <li><strong>Integridad:</strong> Se traduce como honradez, honestidad, respeto por los demás, corrección, responsabilidad, control emocional, respeto por sí mismo, puntualidad, lealtad, pulcritud, disciplina, congruencia y firmeza en sus acciones.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="text-2xl font-bold text-gray-700 mb-3 border-b-2 border-gray-200 pb-2">Filosofía</h3>
+                    <p class="text-lg">Se ha creado un ambiente confiable y armónico basado en el desarrollo personal mediante el trabajo en equipo, brindando una educación de calidad integrando todas las dimensiones del ser humano. Se involucra a la familia y a la comunidad en los procesos de enseñanza-aprendizaje lo que permiten una educación de calidad, orientada a las teorías del aprendizaje como el constructivismo y por descubrimiento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objetivos Section -->
+        <section id="objetivos" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Objetivos del Proyecto</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg space-y-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-700 mb-3">Objetivo General</h3>
+                    <p class="text-lg">Desarrollar las competencias de alfabetización digital en docentes y estudiantes del Centro Educativo Ángela González Nugent, promoviendo el uso crítico, seguro y responsable de las herramientas informáticas y las redes sociales para mejorar los procesos de enseñanza y aprendizaje.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-3">Objetivos Específicos</h3>
+                    <ul class="list-disc list-inside space-y-3 text-lg">
+                        <li>Diagnosticar el nivel de competencia digital del personal docente y de los estudiantes en relación con el uso de herramientas informáticas y redes sociales.</li>
+                        <li>Capacitar al personal docente en el uso pedagógico de las TIC y en estrategias didácticas para la integración curricular de la informática, en línea con la estrategia propuesta de "Formación de Docentes 2.0".</li>
+                        <li>Implementar talleres formativos para los estudiantes de nivel secundario enfocados en la seguridad digital.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marco Legal Section -->
+        <section id="marco-legal" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Marco Legal</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg space-y-6 text-lg">
+                <p>Este proyecto se fundamenta en el marco normativo que rige la educación en la República Dominicana, asegurando que nuestras acciones estén alineadas con las políticas nacionales para una educación de calidad, inclusiva y pertinente.</p>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-700 mb-3">Ley General de Educación No. 66-97</h3>
+                    <p>Es la ley fundamental que estructura el sistema educativo dominicano. Establece el derecho a una educación integral y de calidad para todos, y promueve la innovación y la adaptación del sistema a las necesidades de la sociedad. Nuestro proyecto responde directamente a su llamado de formar ciudadanos críticos, creativos y capaces de participar en una sociedad democrática.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-3">Ordenanzas del Consejo Nacional de Educación</h3>
+                    <p>Las siguientes ordenanzas son pilares para la implementación de este proyecto, ya que definen el currículo actualizado, la estructura de los niveles educativos y el sistema de evaluación basado en competencias:</p>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Ordenanza 03-2013:</strong> Modifica la estructura académica del sistema, organizándola en los niveles Inicial, Primario y Secundario, cada uno de seis años.</li>
+                        <li><strong>Ordenanza 01-2015 y 02-2015:</strong> Establecen el currículo revisado y actualizado para los niveles Inicial y Primario, con un enfoque en competencias.</li>
+                        <li><strong>Ordenanza 02-2016:</strong> Norma el sistema de evaluación de los aprendizajes para los niveles Inicial y Primario, en correspondencia con el nuevo currículo.</li>
+                        <li><strong>Ordenanza 22-2017:</strong> Establece el proceso de validación del diseño curricular revisado y el sistema de evaluación para la Modalidad Académica del Nivel Secundario.</li>
+                    </ul>
+                </div>
+                <p class="pt-4 border-t mt-6">En conjunto, este marco legal nos proporciona la base y la dirección para desarrollar un proyecto de alfabetización digital que no solo es necesario, sino que también está en plena consonancia con las directrices y objetivos del sistema educativo nacional.</p>
+            </div>
+        </section>
+
+        <!-- Oferta Academica Section -->
+        <section id="oferta-academica" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Ofertas Disponibles</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg text-center">
+                    <div class="flex justify-center mb-4">
+                        <i class="fas fa-info-circle fa-3x"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Próximamente</h3>
+                    <p class="text-lg">Actualmente no tenemos ofertas académicas disponibles. Estamos trabajando para traer nuevas oportunidades de formación muy pronto. ¡Por favor, mantente atento a esta sección para futuras actualizaciones!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Docentes Section -->
+        <section id="docentes" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Portal para Docentes</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <p class="text-center mb-8">Aquí encontrarás las fases y actividades diseñadas para fortalecer tus competencias digitales y transformar tu práctica pedagógica.</p>
+                
+                <!-- Fase 1 -->
+                <div class="mb-12 border-l-4 border-blue-500 pl-6 text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-left">Fase 1: Diagnóstico de Competencias</h3>
+                    <p class="mb-4 text-left">El primer paso es conocer nuestro punto de partida. Completa esta exhaustiva encuesta para ayudarnos a personalizar la formación.</p>
+                    <a href="https://forms.gle/y9KLdK4e63VkEScK7" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors inline-flex items-center">
+                        <i class="fas fa-poll mr-2"></i>Iniciar Encuesta Diagnóstica
+                    </a>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="mb-12 border-l-4 border-green-500 pl-6">
+                    <h3 class="text-2xl font-bold mb-3">Fase 2: Formación Docente 2.0</h3>
+                    <p class="mb-6">Ciclo de talleres prácticos para integrar las TIC como Tecnologías del Aprendizaje y el Conocimiento (TAC).</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg border">
+                            <h4 class="font-bold text-xl mb-2">Taller: Del Aula Tradicional al Aula Virtual</h4>
+                            <p class="mb-4 text-sm">Aprende a gestionar tus clases y crear contenido atractivo con herramientas como Google Classroom, Canva y Google Slides.</p>
+                            <button onclick="openVideoModal('YYuR_s6oues')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border">
+                            <h4 class="font-bold text-xl mb-2">Taller: Pedagogía en un Clic</h4>
+                            <p class="mb-4 text-sm">Diseña actividades innovadoras con el modelo SAMR y herramientas como Kahoot!, Padlet y BookCreator.</p>
+                            <button onclick="openQuizModal('samrQuiz')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Iniciar Quiz SAMR</button>
+                        </div>
+                         <div class="bg-gray-50 p-6 rounded-lg border">
+                            <h4 class="font-bold text-xl mb-2">Taller: Evaluación Formativa con TIC</h4>
+                            <p class="mb-4 text-sm">Descubre cómo usar Socrative, Plickers y Google Forms para obtener retroalimentación en tiempo real.</p>
+                            <button onclick="openVideoModal('G-h_iR8Jffc')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border">
+                            <h4 class="font-bold text-xl mb-2">Examen: Seguridad Digital para Docentes</h4>
+                            <p class="mb-4 text-sm">Valida tus conocimientos sobre protección de datos, ciberseguridad y ciudadanía digital responsable.</p>
+                            <button onclick="openQuizModal('digitalSafetyQuiz')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Iniciar Examen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="mb-12 border-l-4 border-red-500 pl-6">
+                    <h3 class="text-2xl font-bold mb-3">Fase 3: Formación Avanzada y Aplicación</h3>
+                    <p class="mb-6">Explora temas avanzados y aplica tus competencias en proyectos innovadores. Aquí encontrarás una biblioteca de recursos para seguir creciendo.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-gamepad text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Gamificación</h5>
+                            </div>
+                            <button onclick="openVideoModal('Icr0vjpZROE')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-vr-cardboard text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Realidad Aumentada</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-robot text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: IA en Educación</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-project-diagram text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Aprendizaje Basado en Proyectos (ABP)</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-video text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Creación de Video-Lecciones</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-podcast text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Creación de Podcasts Educativos</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-code text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Pensamiento Computacional</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-sitemap text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Diseño de Entornos Virtuales</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-chart-bar text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Análisis de Datos Educativos</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-universal-access text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Accesibilidad Digital</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-comments text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Herramientas Colaborativas</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-book-reader text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Fomento de la Lectura Digital</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-copyright text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Derechos de Autor en la Era Digital</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-user-shield text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Bienestar Digital</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-chalkboard text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Pizarras Digitales Interactivas</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
+                            <div>
+                                <i class="fas fa-share-alt text-3xl text-red-500 mb-2"></i>
+                                <h5 class="font-bold">Taller: Creación de Portafolios Digitales</h5>
+                            </div>
+                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comunidad -->
+                <div id="community-section" class="border-l-4 border-purple-500 pl-6 text-center">
+                    <h3 class="text-2xl font-bold mb-3 text-left">Comunidad de Práctica "Innova-Nugent"</h3>
+                    <p class="mb-4 text-left">Únete a nuestra comunidad de WhatsApp para recibir apoyo, compartir recursos y enterarte de nuevos cursos, diplomados y talleres de capacitación.</p>
+                    <a href="https://chat.whatsapp.com/IyvC2D33sQK6eU3osmOVz0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <i class="fab fa-whatsapp mr-3 fa-lg"></i> Unirse a la Comunidad
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estudiantes Section -->
+        <section id="estudiantes" class="page-section hidden mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Espacio para Estudiantes</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <p class="text-center mb-8">¡Bienvenido/a! Aquí encontrarás talleres y actividades para navegar en el mundo digital de forma segura, crítica y responsable.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Taller: ¿Qué son las fake news?</h4>
+                        <p class="mb-4 text-sm">Aprende a identificar noticias falsas y a verificar la información que encuentras en línea.</p>
+                        <button onclick="openVideoModal('tzUm21V8sM4')" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors w-full">Ver Taller</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Herramientas digitales para estudiantes</h4>
+                        <p class="mb-4 text-sm">Descubre aplicaciones y plataformas que te ayudarán a organizar tus estudios y trabajos.</p>
+                        <button onclick="openVideoModal('LSnvU-5BdjI')" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors w-full">Ver Taller</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Introducción a la programación desde cero</h4>
+                        <p class="mb-4 text-sm">Da tus primeros pasos en el mundo del código y aprende a crear cosas increíbles.</p>
+                        <button onclick="openVideoModal('VxrIZGQfxmE')" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded transition-colors w-full">Ver Taller</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Taller de robótica</h4>
+                        <p class="mb-4 text-sm">Explora los fundamentos de la robótica y cómo puedes construir tu propio robot.</p>
+                        <button onclick="openVideoModal('ZWbmtfF_qHI')" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded transition-colors w-full">Ver Taller</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Uso responsable de la tecnología</h4>
+                        <p class="mb-4 text-sm">Aprende a gestionar tu tiempo en pantalla y a usar la tecnología para tu bienestar.</p>
+                        <button onclick="openVideoModal('vPPZyKOWJNs')" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded transition-colors w-full">Ver Taller</button>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold text-xl mb-2">Juego: Reto Digital</h4>
+                        <p class="mb-4 text-sm">¿Puedes superar el desafío? Pon a prueba tus conocimientos sobre el mundo digital con este juego interactivo.</p>
+                        <button onclick="openQuizModal('studentDigitalChallengeQuiz')" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors w-full">
+                            <i class="fas fa-gamepad mr-2"></i>Jugar Ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Section -->
+        <section id="recursos" class="page-section hidden mb-16">
+             <h2 class="text-3xl font-bold text-center mb-8">Recursos Adicionales</h2>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <div class="bg-white p-6 rounded-lg shadow">
+                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-tools mr-2 text-blue-500"></i>Herramientas Recomendadas</h3>
+                     <ul class="list-disc list-inside space-y-2 text-blue-700">
+                         <li><a href="https://www.canva.com/" target="_blank" class="hover:underline">Canva</a></li>
+                         <li><a href="https://kahoot.it/" target="_blank" class="hover:underline">Kahoot!</a></li>
+                         <li><a href="https://padlet.com/" target="_blank" class="hover:underline">Padlet</a></li>
+                         <li><a href="https://bookcreator.com/" target="_blank" class="hover:underline">BookCreator</a></li>
+                     </ul>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow">
+                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Guías y Manuales</h3>
+                     <ul class="list-disc list-inside space-y-2 text-blue-700">
+                         <li><a href="https://web-assets.esetstatic.com/wls/2013/11/guia-redes-sociales-eset.pdf" target="_blank" class="hover:underline">Guía de Seguridad en Redes Sociales (PDF)</a></li>
+                         <li><a href="https://verificationhandbook.com/downloads/manual.de.verificacion.pdf" target="_blank" class="hover:underline">Manual de Verificación de Noticias (PDF)</a></li>
+                         <li><a href="https://www.scielo.sa.cr/pdf/aie/v21n1/1409-4703-aie-21-01-429.pdf" target="_blank" class="hover:underline">Modelo SAMR en la Práctica (PDF)</a></li>
+                     </ul>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow">
+                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-book-open mr-2 text-green-500"></i>Referencias del Proyecto</h3>
+                     <ul class="list-disc list-inside space-y-2 text-sm text-gray-600">
+                         <li>Álvarez-Flores, E. A. (2024).</li>
+                         <li>Palacios-Rodríguez, A. & Martín-Párraga, L. (2021).</li>
+                         <li>Valarezo Castro, J. W., & Santos Jiménez, O. C. (2019).</li>
+                     </ul>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="font-bold text-xl mb-3"><i class="fas fa-users mr-2 text-purple-500"></i>Autores del Proyecto</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Braulio De La Rosa</li>
+                        <li>Betty Gil</li>
+                        <li>Cristian Bernard</li>
+                        <li>Daniel Reyes</li>
+                        <li>Erwin Marte</li>
+                        <li>María Robles</li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Proyecto Pedagógico - Centro Educativo Ángela González Nugent.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Genérico (para Quiz, Juego y Video) -->
+    <div id="generic-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-xl p-4 sm:p-8 max-w-4xl w-full">
+            <div class="flex justify-between items-center mb-4">
+                 <h3 class="text-xl sm:text-2xl font-bold" id="modal-title"></h3>
+                 <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="modal-content-wrapper">
+                <div id="quiz-content" class="hidden">
+                    <p id="quiz-question" class="mb-4 text-lg"></p>
+                    <div id="quiz-options" class="space-y-3"></div>
+                </div>
+                <div id="quiz-result" class="hidden">
+                    <p id="result-text" class="text-xl font-semibold"></p>
+                    <p id="result-explanation" class="mt-2"></p>
+                </div>
+                <div id="video-content" class="hidden aspect-w-16 aspect-h-9">
+                    <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-between">
+                <button id="close-modal-btn-bottom" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Cerrar</button>
+                <button id="next-question-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded hidden">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nosotrosBtn = document.getElementById('nosotros-btn');
+        const nosotrosMenu = document.getElementById('nosotros-menu');
+
+        window.showPage = (pageId) => {
+            pageSections.forEach(section => {
+                section.classList.toggle('active', section.id === pageId);
+                section.classList.toggle('hidden', section.id !== pageId);
+            });
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('href').substring(1);
+                showPage(pageId);
+                if (!nosotrosMenu.classList.contains('hidden')) {
+                    nosotrosMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        nosotrosBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            nosotrosMenu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!nosotrosMenu.contains(event.target) && !nosotrosBtn.contains(event.target)) {
+                nosotrosMenu.classList.add('hidden');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => showPage('home'));
+
+        const genericModal = document.getElementById('generic-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const closeModalBtnBottom = document.getElementById('close-modal-btn-bottom');
+        const quizContent = document.getElementById('quiz-content');
+        const videoContent = document.getElementById('video-content');
+        
+        function closeModal() {
+            genericModal.classList.remove('active');
+            const iframe = document.getElementById('video-iframe');
+            iframe.src = ''; 
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        closeModalBtnBottom.addEventListener('click', closeModal);
+
+        window.openVideoModal = (videoId) => {
+            modalTitle.textContent = "Contenido del Taller";
+            quizContent.classList.add('hidden');
+            videoContent.classList.remove('hidden');
+            document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${videoId}`;
+            genericModal.classList.add('active');
+            document.getElementById('next-question-btn').classList.add('hidden');
+        };
+
+        const quizQuestionEl = document.getElementById('quiz-question');
+        const quizOptionsEl = document.getElementById('quiz-options');
+        const quizResultEl = document.getElementById('quiz-result');
+        const resultTextEl = document.getElementById('result-text');
+        const resultExplanationEl = document.getElementById('result-explanation');
+        const nextQuestionBtn = document.getElementById('next-question-btn');
+        
+        let currentQuizData = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const quizzes = {
+            samrQuiz: [
+                { question: "Un docente reemplaza una máquina de escribir por un procesador de texto (Word) para que los alumnos escriban un ensayo. ¿Qué nivel del modelo SAMR es?", options: ["Sustitución", "Aumentación", "Modificación", "Redefinición"], answer: "Sustitución", explanation: "Correcto. La tecnología actúa como una herramienta sustituta directa, sin cambio funcional." },
+                { question: "Los estudiantes usan un procesador de texto con corrector ortográfico y herramientas de formato para mejorar su ensayo. ¿Qué nivel es?", options: ["Sustitución", "Aumentación", "Modificación", "Redefinición"], answer: "Aumentación", explanation: "¡Exacto! La tecnología sigue siendo un sustituto, pero con mejoras funcionales." },
+                { question: "Los estudiantes publican sus ensayos en un blog de la clase y reciben comentarios de sus compañeros. La tarea ha sido rediseñada. ¿Qué nivel es?", options: ["Sustitución", "Aumentación", "Modificación", "Redefinición"], answer: "Modificación", explanation: "Muy bien. La tecnología ha permitido un rediseño significativo de la tarea." }
+            ],
+            digitalSafetyQuiz: [
+                { question: "¿Qué es el 'phishing'?", options: ["Un virus informático", "Un intento de obtener información confidencial de forma fraudulenta", "Un tipo de red social", "Un software de protección"], answer: "Un intento de obtener información confidencial de forma fraudulenta", explanation: "El phishing usa correos o mensajes falsos para engañarte y robar tu información." },
+                { question: "Una contraseña segura debe incluir:", options: ["Solo letras minúsculas", "Tu fecha de nacimiento", "Mayúsculas, minúsculas, números y símbolos", "El nombre de tu mascota"], answer: "Mayúsculas, minúsculas, números y símbolos", explanation: "La combinación de diferentes tipos de caracteres hace que una contraseña sea mucho más difícil de descifrar." },
+            ],
+            studentDigitalChallengeQuiz: [
+                { question: "¿Cuál de estas herramientas es mejor para crear presentaciones visuales?", options: ["Word", "Excel", "Canva", "Bloc de notas"], answer: "Canva", explanation: "Canva está diseñada específicamente para crear gráficos y presentaciones atractivas." },
+                { question: "En programación, ¿qué es un 'bucle' (loop)?", options: ["Un error en el código", "Una instrucción que se repite varias veces", "Un tipo de dato", "Una variable"], answer: "Una instrucción que se repite varias veces", explanation: "Los bucles permiten ejecutar un bloque de código una y otra vez hasta que se cumple una condición." },
+                { question: "Si un titular de noticia suena muy exagerado o increíble, ¿qué deberías hacer?", options: ["Compartirlo inmediatamente", "Creerlo sin dudar", "Buscar la misma noticia en fuentes confiables", "Ignorarlo"], answer: "Buscar la misma noticia en fuentes confiables", explanation: "Verificar la información en medios de comunicación reconocidos es clave para no caer en 'fake news'." },
+                { question: "El 'cerebro' de un robot, que procesa la información y da las órdenes, es el:", options: ["Motor", "Sensor", "Controlador (CPU)", "Brazo"], answer: "Controlador (CPU)", explanation: "El controlador o CPU es como el cerebro, procesa los datos de los sensores y decide qué hacer." },
+                { question: "Pasar demasiado tiempo frente a una pantalla puede causar:", options: ["Mejorar la vista", "Cansancio visual y problemas de sueño", "Mayor energía", "Ningún efecto"], answer: "Cansancio visual y problemas de sueño", explanation: "Es importante tomar descansos regulares para cuidar tu salud visual y mental." },
+                { question: "¿Qué es una 'variable' en programación?", options: ["Un comando para imprimir texto", "Un espacio para guardar datos que pueden cambiar", "Una función matemática", "Un error de sintaxis"], answer: "Un espacio para guardar datos que pueden cambiar", explanation: "Las variables son como cajas donde guardamos información que podemos usar y modificar en nuestro programa." },
+                { question: "Una noticia que no cita sus fuentes o usa expertos anónimos es:", options: ["Probablemente confiable", "Sospechosa y probablemente falsa", "Siempre verdadera", "Un reportaje de investigación"], answer: "Sospechosa y probablemente falsa", explanation: "Las noticias reales y bien investigadas siempre citan sus fuentes y a expertos identificables." },
+                { question: "¿Para qué sirve un sensor en un robot?", options: ["Para moverse", "Para recoger información del entorno (luz, sonido, distancia)", "Para hablar", "Para conectarse a internet"], answer: "Para recoger información del entorno (luz, sonido, distancia)", explanation: "Los sensores son los 'sentidos' del robot, le permiten percibir el mundo que lo rodea." },
+                { question: "Una buena práctica para el uso responsable de la tecnología es:", options: ["Dejar todas tus cuentas abiertas en dispositivos públicos", "Compartir tu contraseña con amigos", "Activar notificaciones para todas tus apps", "Establecer límites de tiempo para el uso de redes sociales"], answer: "Establecer límites de tiempo para el uso de redes sociales", explanation: "Gestionar tu tiempo en línea te ayuda a mantener un equilibrio saludable con otras actividades." },
+                { question: "¿Qué lenguaje de programación es muy popular para empezar a aprender?", options: ["Ensamblador", "C++", "Python", "Java"], answer: "Python", explanation: "Python es conocido por tener una sintaxis sencilla y fácil de leer, ideal para principiantes." },
+                { question: "Si ves una publicación que te hace sentir muy enojado o triste, antes de compartirla deberías:", options: ["Compartirla para que otros se enojen también", "Verificar si la información es real", "Insultar a quien la publicó", "Creerla inmediatamente"], answer: "Verificar si la información es real", explanation: "Las 'fake news' a menudo buscan provocar emociones fuertes para que se compartan sin pensar." },
+                { question: "¿Qué es un 'actuador' en robótica?", options: ["Un sensor", "El programa del robot", "Un componente que permite el movimiento (un motor, un pistón)", "La batería"], answer: "Un componente que permite el movimiento (un motor, un pistón)", explanation: "Los actuadores son los 'músculos' del robot, convierten la energía en movimiento." },
+                { question: "Google Docs, Slides y Sheets son ejemplos de:", options: ["Redes sociales", "Sistemas operativos", "Herramientas de colaboración en la nube", "Antivirus"], answer: "Herramientas de colaboración en la nube", explanation: "Permiten que varias personas trabajen en el mismo documento al mismo tiempo a través de internet." },
+                { question: "El 'pensamiento computacional' implica:", options: ["Pensar como una computadora", "Descomponer un problema grande en partes más pequeñas", "Usar la calculadora", "Navegar por internet"], answer: "Descomponer un problema grande en partes más pequeñas", explanation: "Es una forma de resolver problemas dividiéndolos en pasos lógicos y manejables." },
+                { question: "Para proteger tu privacidad en línea, es recomendable:", options: ["Usar tu nombre completo y fecha de nacimiento en tu perfil", "Publicar fotos de tu documento de identidad", "Pensar dos veces antes de publicar información personal", "Aceptar cookies de todos los sitios sin leer"], answer: "Pensar dos veces antes de publicar información personal", explanation: "Una vez que algo está en internet, es muy difícil eliminarlo. Sé cuidadoso con lo que compartes." },
+            ]
+        };
+
+        function resetModalForQuiz(title) {
+            modalTitle.textContent = title;
+            videoContent.classList.add('hidden');
+            quizContent.classList.remove('hidden');
+            quizResultEl.classList.add('hidden');
+            quizQuestionEl.classList.remove('hidden');
+            quizOptionsEl.classList.remove('hidden');
+            nextQuestionBtn.classList.add('hidden');
+            genericModal.classList.add('active');
+        }
+
+        window.openQuizModal = (quizId) => {
+            currentQuizData = quizzes[quizId];
+            let title = 'Quiz';
+            if (quizId === 'samrQuiz') title = 'Quiz: Modelo SAMR';
+            if (quizId === 'digitalSafetyQuiz') title = 'Examen: Seguridad Digital';
+            if (quizId === 'studentDigitalChallengeQuiz') title = 'Juego: Reto Digital';
+            
+            currentQuestionIndex = 0;
+            score = 0;
+            resetModalForQuiz(title);
+            loadQuizQuestion();
+        };
+
+        function loadQuizQuestion() {
+            quizResultEl.classList.add('hidden');
+            nextQuestionBtn.classList.add('hidden');
+            quizOptionsEl.innerHTML = '';
+            quizOptionsEl.classList.remove('hidden');
+            quizQuestionEl.classList.remove('hidden');
+            
+            const q = currentQuizData[currentQuestionIndex];
+            quizQuestionEl.textContent = `${currentQuestionIndex + 1}. ${q.question}`;
+            
+            q.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('block', 'w-full', 'text-left', 'p-3', 'rounded-lg', 'bg-gray-100', 'hover:bg-blue-100', 'transition-colors');
+                button.onclick = () => checkQuizAnswer(option);
+                quizOptionsEl.appendChild(button);
+            });
+        }
+
+        function checkQuizAnswer(selectedOption) {
+            const q = currentQuizData[currentQuestionIndex];
+            quizOptionsEl.classList.add('hidden');
+            quizQuestionEl.classList.add('hidden');
+            quizResultEl.classList.remove('hidden');
+
+            if (selectedOption === q.answer) {
+                resultTextEl.textContent = "¡Correcto!";
+                resultTextEl.className = "text-xl font-semibold text-green-600";
+                score++;
+            } else {
+                resultTextEl.textContent = "Incorrecto.";
+                resultTextEl.className = "text-xl font-semibold text-red-600";
+            }
+            resultExplanationEl.textContent = q.explanation;
+            
+            if(currentQuestionIndex < currentQuizData.length - 1) {
+                nextQuestionBtn.classList.remove('hidden');
+            } else {
+                nextQuestionBtn.classList.add('hidden');
+                const finalScore = (score / currentQuizData.length) * 100;
+                resultExplanationEl.textContent += ` ¡Has completado el examen! Tu puntuación es: ${finalScore.toFixed(0)}/100.`;
+            }
+        }
+
+        nextQuestionBtn.addEventListener('click', () => {
+            currentQuestionIndex++;
+            loadQuizQuestion();
+        });
+
+        window.openFakeNewsGame = () => {
+            openQuizModal('studentDigitalChallengeQuiz');
+        };
+
+    </script>
+</body>
+</html>
