@@ -17,9 +17,6 @@
         .page-section.active {
             display: block;
         }
-        .gradient-bg {
-            background-color: #d9e2f3; /* Color sólido azul claro similar a la imagen */
-        }
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -42,7 +39,9 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="nav-link text-2xl font-bold text-blue-800 flex items-center">
-                <i class="fas fa-shield-alt mr-2"></i>Innova-Nugent
+                <!-- LOGO CAMBIADO Y AUMENTADO DE TAMAÑO -->
+                <img src="Imagenes/Logo.png" alt="Innova-Nugent Logo" class="h-16 mr-2">
+                Innova-Nugent
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 font-semibold flex items-center"><i class="fas fa-home mr-2"></i>Inicio</a>
@@ -87,11 +86,15 @@
         
         <!-- Home Section -->
         <section id="home" class="page-section text-center mb-16">
-            <div class="gradient-bg rounded-xl p-8 md:p-12">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">Alfabetización Digital para una Convivencia Segura</h1>
-                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-                    Proyecto pedagógico del Centro Educativo Ángela González Nugent para desarrollar competencias informáticas en docentes y estudiantes.
-                </p>
+            <!-- SECCIÓN MODIFICADA CON IMAGEN DE FONDO -->
+            <div class="relative rounded-xl p-8 md:p-12 overflow-hidden bg-cover bg-center" style="background-image: url('Imagenes/Portada.png');">
+                <div class="absolute inset-0 bg-blue-900 bg-opacity-60"></div>
+                <div class="relative z-10">
+                     <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Alfabetización Digital para una Convivencia Segura</h1>
+                     <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
+                        Proyecto pedagógico del Centro Educativo Ángela González Nugent para desarrollar competencias informáticas en docentes y estudiantes.
+                     </p>
+                </div>
             </div>
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div onclick="showPage('docentes')" class="card-hover cursor-pointer bg-white p-8 rounded-lg shadow-lg transition-all duration-300">
@@ -106,14 +109,21 @@
                 </div>
             </div>
 
+            <!-- Cajas de citas con imágenes -->
             <div class="mt-16 space-y-8">
-                <div class="quote-box p-6 rounded-lg shadow-md max-w-3xl mx-auto">
-                    <p class="text-xl italic text-gray-700">"Tenemos que preparar a los estudiantes para su futuro, no para nuestro pasado."</p>
-                    <p class="text-right font-semibold text-gray-600 mt-2">- Ian Jukes</p>
+                <div class="quote-box relative p-6 rounded-lg shadow-md max-w-3xl mx-auto overflow-hidden">
+                    <div class="pr-24"> <!-- Padding para que el texto no se solape con la imagen -->
+                        <p class="text-xl italic text-gray-700">"Tenemos que preparar a los estudiantes para su futuro, no para nuestro pasado."</p>
+                        <p class="text-right font-semibold text-gray-600 mt-2">- Ian Jukes</p>
+                    </div>
+                    <img src="Imagenes/Ian_Jukes-removebg-preview.png" alt="Ian Jukes" class="absolute bottom-2 right-2 h-20 w-20 object-contain">
                 </div>
-                <div class="quote-box p-6 rounded-lg shadow-md max-w-3xl mx-auto">
-                    <p class="text-xl italic text-gray-700">"La educación no cambia al mundo. Cambia a las personas que van a cambiar el mundo."</p>
-                    <p class="text-right font-semibold text-gray-600 mt-2">- Paulo Freire</p>
+                <div class="quote-box relative p-6 rounded-lg shadow-md max-w-3xl mx-auto overflow-hidden">
+                    <div class="pr-24"> <!-- Padding para que el texto no se solape con la imagen -->
+                        <p class="text-xl italic text-gray-700">"La educación no cambia al mundo. Cambia a las personas que van a cambiar el mundo."</p>
+                        <p class="text-right font-semibold text-gray-600 mt-2">- Paulo Freire</p>
+                    </div>
+                    <img src="Imagenes/Paulo.png" alt="Paulo Freire" class="absolute bottom-2 right-2 h-20 w-20 rounded-full object-cover">
                 </div>
             </div>
         </section>
@@ -216,8 +226,16 @@
 
         <!-- Docentes Section -->
         <section id="docentes" class="page-section hidden mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8">Portal para Docentes</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
+            <!-- Banner de Título -->
+            <div class="relative rounded-xl p-8 md:p-10 overflow-hidden bg-cover bg-center mb-8 shadow-lg" style="background-image: url('Imagenes/Docentes.png');">
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                <div class="relative z-10 text-center">
+                     <h2 class="text-3xl md:text-4xl font-extrabold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Portal para Docentes</h2>
+                </div>
+            </div>
+
+            <!-- Contenido de la sección -->
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
                 <p class="text-center mb-8">Aquí encontrarás las fases y actividades diseñadas para fortalecer tus competencias digitales y transformar tu práctica pedagógica.</p>
                 
                 <!-- Fase 1 -->
@@ -236,18 +254,18 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-gray-50 p-6 rounded-lg border">
                             <h4 class="font-bold text-xl mb-2">Taller: Del Aula Tradicional al Aula Virtual</h4>
-                            <p class="mb-4 text-sm">Aprende a gestionar tus clases y crear contenido atractivo con herramientas como Google Classroom, Canva y Google Slides.</p>
+                            <p class="mb-4 text-sm">Aprende a gestionar tus clases y crear contenido atractivo con herramientas digitales.</p>
                             <button onclick="openVideoModal('YYuR_s6oues')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg border">
                             <h4 class="font-bold text-xl mb-2">Taller: Pedagogía en un Clic</h4>
-                            <p class="mb-4 text-sm">Diseña actividades innovadoras con el modelo SAMR y herramientas como Kahoot!, Padlet y BookCreator.</p>
-                            <button onclick="openQuizModal('samrQuiz')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Iniciar Quiz SAMR</button>
+                            <p class="mb-4 text-sm">Diseña actividades innovadoras con el modelo SAMR.</p>
+                            <button onclick="openVideoModal('YXBGK3UagFs')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
                         </div>
                          <div class="bg-gray-50 p-6 rounded-lg border">
-                            <h4 class="font-bold text-xl mb-2">Taller: Evaluación Formativa con TIC</h4>
-                            <p class="mb-4 text-sm">Descubre cómo usar Socrative, Plickers y Google Forms para obtener retroalimentación en tiempo real.</p>
-                            <button onclick="openVideoModal('G-h_iR8Jffc')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
+                            <h4 class="font-bold text-xl mb-2">Taller: de Seguridad Digital para Docentes</h4>
+                            <p class="mb-4 text-sm">Aprende sobre los riesgos digitales en el entorno educativo y cómo proteger la información sensible de los estudiantes y la institución.</p>
+                            <button onclick="openVideoModal('7GpVv-frtxQ')" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-sm transition-colors">Ver Contenido</button>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg border">
                             <h4 class="font-bold text-xl mb-2">Examen: Seguridad Digital para Docentes</h4>
@@ -262,117 +280,133 @@
                     <h3 class="text-2xl font-bold mb-3">Fase 3: Formación Avanzada y Aplicación</h3>
                     <p class="mb-6">Explora temas avanzados y aplica tus competencias en proyectos innovadores. Aquí encontrarás una biblioteca de recursos para seguir creciendo.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Taller: Gamificación en la educación -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-gamepad text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Gamificación</h5>
+                                <h5 class="font-bold">Gamificación en la educación</h5>
                             </div>
-                            <button onclick="openVideoModal('Icr0vjpZROE')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('d_bkevObHlg')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Realidad Aumentada en Educación -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-vr-cardboard text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Realidad Aumentada</h5>
+                                <h5 class="font-bold">Realidad Aumentada en Educación</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('eg0fKV9XgqM')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Inteligencia Artificial en Educación -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-robot text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: IA en Educación</h5>
+                                <h5 class="font-bold">Inteligencia Artificial en Educación</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('9UZZ7njcvTY')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Aprendizaje Basado en Proyectos (ABP) -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-project-diagram text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Aprendizaje Basado en Proyectos (ABP)</h5>
+                                <h5 class="font-bold">Aprendizaje Basado en Proyectos (ABP)</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('fXwVgK4hUdk')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Creación de Video -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-video text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Creación de Video-Lecciones</h5>
+                                <h5 class="font-bold">Creación de Video</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('9IFrRvFvSco')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Creación de Podcasts Educativos -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-podcast text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Creación de Podcasts Educativos</h5>
+                                <h5 class="font-bold">Creación de Podcasts Educativos</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('RkbEpKki8i8')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Pensamiento Computacional -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-code text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Pensamiento Computacional</h5>
+                                <h5 class="font-bold">Pensamiento Computacional</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('6AfjCNxHum8')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Diseño de Entornos Virtuales -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-sitemap text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Diseño de Entornos Virtuales</h5>
+                                <h5 class="font-bold">Diseño de Entornos Virtuales</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('FHuSFtgyldI')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Análisis de Datos Educativos -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-chart-bar text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Análisis de Datos Educativos</h5>
+                                <h5 class="font-bold">Análisis de Datos Educativos</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('yJ713ToHAKo')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Accesibilidad Digital -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-universal-access text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Accesibilidad Digital</h5>
+                                <h5 class="font-bold">Accesibilidad Digital</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('jnd1rNrfyWQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Herramientas Colaborativas -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-comments text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Herramientas Colaborativas</h5>
+                                <h5 class="font-bold">Herramientas Colaborativas</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('oe5Au4mPymk')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Fomento de la Lectura Digital -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-book-reader text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Fomento de la Lectura Digital</h5>
+                                <h5 class="font-bold">Fomento de la Lectura Digital</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('EUH6BNAg3gk')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Derechos de Autor en la Era Digital -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-copyright text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Derechos de Autor en la Era Digital</h5>
+                                <h5 class="font-bold">Derechos de Autor en la Era Digital</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('7Z3noHYQxos')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Bienestar Digital -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-user-shield text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Bienestar Digital</h5>
+                                <h5 class="font-bold">Bienestar Digital</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('dX8VeVUqHYM')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Pizarras Digitales Interactivas -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-chalkboard text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Pizarras Digitales Interactivas</h5>
+                                <h5 class="font-bold">Pizarras Digitales Interactivas</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('sXYK6OHyrt4')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
+                        <!-- Taller: Creación de Portafolios Digitales -->
                         <div class="bg-gray-50 p-4 rounded-lg border text-center flex flex-col justify-between">
                             <div>
                                 <i class="fas fa-share-alt text-3xl text-red-500 mb-2"></i>
-                                <h5 class="font-bold">Taller: Creación de Portafolios Digitales</h5>
+                                <h5 class="font-bold">Creación de Portafolios Digitales</h5>
                             </div>
-                            <button onclick="openVideoModal('dQw4w9WgXcQ')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
+                            <button onclick="openVideoModal('5QsAtjqN1WA')" class="mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-xs transition-colors">Ver Taller</button>
                         </div>
                     </div>
                 </div>
@@ -390,8 +424,16 @@
 
         <!-- Estudiantes Section -->
         <section id="estudiantes" class="page-section hidden mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8">Espacio para Estudiantes</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
+            <!-- Banner de Título -->
+            <div class="relative rounded-xl p-8 md:p-10 overflow-hidden bg-cover bg-center mb-8 shadow-lg" style="background-image: url('Imagenes/estudiante.jpg');">
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                <div class="relative z-10 text-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Espacio para Estudiantes</h2>
+                </div>
+            </div>
+            
+            <!-- Contenido de la sección -->
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
                 <p class="text-center mb-8">¡Bienvenido/a! Aquí encontrarás talleres y actividades para navegar en el mundo digital de forma segura, crítica y responsable.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -428,50 +470,79 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- INICIO: Nueva sección para el juego interactivo -->
+                <div class="mt-16 pt-8 border-t-2 border-gray-200">
+                    <h3 class="text-2xl lg:text-3xl font-bold text-center mb-6 text-gray-800">¡A Jugar! Tira el Dado y Aprende</h3>
+                    <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Pon a prueba tus conocimientos sobre las TICs de una manera divertida. ¡Lanza el dado y avanza en el tablero para descubrir cuánto sabes!</p>
+                    <div class="bg-white p-2 sm:p-4 rounded-xl shadow-lg border border-gray-200">
+                        <!-- Contenedor responsivo para mantener la relación de aspecto del iframe -->
+                        <div class="relative w-full overflow-hidden" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
+                            <iframe 
+                                class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                                src="https://view.genially.com/65fc444286fcc90014b9b950/interactive-content-juego-tics" 
+                                frameborder="0" 
+                                allow="autoplay; fullscreen" 
+                                allowfullscreen="true">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN: Nueva sección para el juego interactivo -->
             </div>
         </section>
 
-        <!-- Recursos Section -->
+        <!-- CAMBIO: Sección Recursos con nuevo diseño -->
         <section id="recursos" class="page-section hidden mb-16">
-             <h2 class="text-3xl font-bold text-center mb-8">Recursos Adicionales</h2>
-             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                 <div class="bg-white p-6 rounded-lg shadow">
-                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-tools mr-2 text-blue-500"></i>Herramientas Recomendadas</h3>
-                     <ul class="list-disc list-inside space-y-2 text-blue-700">
-                         <li><a href="https://www.canva.com/" target="_blank" class="hover:underline">Canva</a></li>
-                         <li><a href="https://kahoot.it/" target="_blank" class="hover:underline">Kahoot!</a></li>
-                         <li><a href="https://padlet.com/" target="_blank" class="hover:underline">Padlet</a></li>
-                         <li><a href="https://bookcreator.com/" target="_blank" class="hover:underline">BookCreator</a></li>
-                     </ul>
-                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow">
-                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Guías y Manuales</h3>
-                     <ul class="list-disc list-inside space-y-2 text-blue-700">
-                         <li><a href="https://web-assets.esetstatic.com/wls/2013/11/guia-redes-sociales-eset.pdf" target="_blank" class="hover:underline">Guía de Seguridad en Redes Sociales (PDF)</a></li>
-                         <li><a href="https://verificationhandbook.com/downloads/manual.de.verificacion.pdf" target="_blank" class="hover:underline">Manual de Verificación de Noticias (PDF)</a></li>
-                         <li><a href="https://www.scielo.sa.cr/pdf/aie/v21n1/1409-4703-aie-21-01-429.pdf" target="_blank" class="hover:underline">Modelo SAMR en la Práctica (PDF)</a></li>
-                     </ul>
-                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow">
-                     <h3 class="font-bold text-xl mb-3"><i class="fas fa-book-open mr-2 text-green-500"></i>Referencias del Proyecto</h3>
-                     <ul class="list-disc list-inside space-y-2 text-sm text-gray-600">
-                         <li>Álvarez-Flores, E. A. (2024).</li>
-                         <li>Palacios-Rodríguez, A. & Martín-Párraga, L. (2021).</li>
-                         <li>Valarezo Castro, J. W., & Santos Jiménez, O. C. (2019).</li>
-                     </ul>
-                 </div>
-                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-xl mb-3"><i class="fas fa-users mr-2 text-purple-500"></i>Autores del Proyecto</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Braulio De La Rosa</li>
-                        <li>Betty Gil</li>
-                        <li>Cristian Bernard</li>
-                        <li>Daniel Reyes</li>
-                        <li>Erwin Marte</li>
-                        <li>María Robles</li>
-                    </ul>
+            <!-- Banner de Título -->
+            <div class="relative rounded-xl p-8 md:p-10 overflow-hidden bg-cover bg-center mb-8 shadow-lg" style="background-image: url('Imagenes/recursos.png');">
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                <div class="relative z-10 text-center">
+                     <h2 class="text-3xl md:text-4xl font-extrabold text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Recursos Adicionales</h2>
                 </div>
-             </div>
+            </div>
+
+            <!-- Contenido de la sección -->
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                     <div class="bg-white p-6 rounded-lg shadow">
+                         <h3 class="font-bold text-xl mb-3"><i class="fas fa-tools mr-2 text-blue-500"></i>Herramientas Recomendadas</h3>
+                         <ul class="list-disc list-inside space-y-2 text-blue-700">
+                             <li><a href="https://www.canva.com/" target="_blank" class="hover:underline">Canva</a></li>
+                             <li><a href="https://kahoot.it/" target="_blank" class="hover:underline">Kahoot!</a></li>
+                             <li><a href="https://padlet.com/" target="_blank" class="hover:underline">Padlet</a></li>
+                             <li><a href="https://bookcreator.com/" target="_blank" class="hover:underline">BookCreator</a></li>
+                         </ul>
+                     </div>
+                     <div class="bg-white p-6 rounded-lg shadow">
+                         <h3 class="font-bold text-xl mb-3"><i class="fas fa-file-pdf mr-2 text-red-500"></i>Guías y Manuales</h3>
+                         <ul class="list-disc list-inside space-y-2 text-blue-700">
+                             <li><a href="https://web-assets.esetstatic.com/wls/2013/11/guia-redes-sociales-eset.pdf" target="_blank" class="hover:underline">Guía de Seguridad en Redes Sociales (PDF)</a></li>
+                             <li><a href="https://verificationhandbook.com/downloads/manual.de.verificacion.pdf" target="_blank" class="hover:underline">Manual de Verificación de Noticias (PDF)</a></li>
+                             <li><a href="https://www.scielo.sa.cr/pdf/aie/v21n1/1409-4703-aie-21-01-429.pdf" target="_blank" class="hover:underline">Modelo SAMR en la Práctica (PDF)</a></li>
+                         </ul>
+                     </div>
+                     <div class="bg-white p-6 rounded-lg shadow">
+                         <h3 class="font-bold text-xl mb-3"><i class="fas fa-book-open mr-2 text-green-500"></i>Referencias del Proyecto</h3>
+                         <ul class="list-disc list-inside space-y-2 text-sm text-gray-600">
+                             <li>Álvarez-Flores, E. A. (2024).</li>
+                             <li>Palacios-Rodríguez, A. & Martín-Párraga, L. (2021).</li>
+                             <li>Valarezo Castro, J. W., & Santos Jiménez, O. C. (2019).</li>
+                         </ul>
+                     </div>
+                     <div class="bg-white p-6 rounded-lg shadow">
+                         <h3 class="font-bold text-xl mb-3"><i class="fas fa-users mr-2 text-purple-500"></i>Autores del Proyecto</h3>
+                         <ul class="list-disc list-inside space-y-2 text-gray-700">
+                             <li>Braulio De La Rosa</li>
+                             <li>Betty Gil</li>
+                             <li>Cristian Bernard</li>
+                             <li>Daniel Reyes</li>
+                             <li>Erwin Marte</li>
+                             <li>María Robles</li>
+                         </ul>
+                     </div>
+                 </div>
+            </div>
         </section>
 
     </main>
@@ -485,10 +556,10 @@
 
     <!-- Modal Genérico (para Quiz, Juego y Video) -->
     <div id="generic-modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-lg shadow-xl p-4 sm:p-8 max-w-4xl w-full">
+        <div class="bg-white rounded-lg shadow-xl p-4 sm:p-8 max-w-5xl w-full">
             <div class="flex justify-between items-center mb-4">
-                 <h3 class="text-xl sm:text-2xl font-bold" id="modal-title"></h3>
-                 <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+                <h3 class="text-xl sm:text-2xl font-bold" id="modal-title"></h3>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
             </div>
             <div id="modal-content-wrapper">
                 <div id="quiz-content" class="hidden">
@@ -499,7 +570,8 @@
                     <p id="result-text" class="text-xl font-semibold"></p>
                     <p id="result-explanation" class="mt-2"></p>
                 </div>
-                <div id="video-content" class="hidden aspect-w-16 aspect-h-9">
+                <!-- CAMBIO CLAVE: Se usa aspect-video para un tamaño responsivo 16:9 -->
+                <div id="video-content" class="hidden w-full aspect-video bg-black rounded-lg overflow-hidden">
                     <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
@@ -568,6 +640,7 @@
         function closeModal() {
             genericModal.classList.remove('active');
             const iframe = document.getElementById('video-iframe');
+            // Detener el video al cerrar el modal
             iframe.src = ''; 
         }
 
@@ -577,6 +650,7 @@
         window.openVideoModal = (videoId) => {
             modalTitle.textContent = "Contenido del Taller";
             quizContent.classList.add('hidden');
+            document.getElementById('quiz-result').classList.add('hidden'); // Ocultar resultados de quiz
             videoContent.classList.remove('hidden');
             document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${videoId}`;
             genericModal.classList.add('active');
@@ -601,8 +675,26 @@
                 { question: "Los estudiantes publican sus ensayos en un blog de la clase y reciben comentarios de sus compañeros. La tarea ha sido rediseñada. ¿Qué nivel es?", options: ["Sustitución", "Aumentación", "Modificación", "Redefinición"], answer: "Modificación", explanation: "Muy bien. La tecnología ha permitido un rediseño significativo de la tarea." }
             ],
             digitalSafetyQuiz: [
-                { question: "¿Qué es el 'phishing'?", options: ["Un virus informático", "Un intento de obtener información confidencial de forma fraudulenta", "Un tipo de red social", "Un software de protección"], answer: "Un intento de obtener información confidencial de forma fraudulenta", explanation: "El phishing usa correos o mensajes falsos para engañarte y robar tu información." },
-                { question: "Una contraseña segura debe incluir:", options: ["Solo letras minúsculas", "Tu fecha de nacimiento", "Mayúsculas, minúsculas, números y símbolos", "El nombre de tu mascota"], answer: "Mayúsculas, minúsculas, números y símbolos", explanation: "La combinación de diferentes tipos de caracteres hace que una contraseña sea mucho más difícil de descifrar." },
+                { question: "¿Cómo se define la 'educación virtual' en el seminario?", options: ["El uso de redes sociales para entregar tareas escolares.", "El desarrollo de dinámicas de enseñanza-aprendizaje realizadas de forma virtual, donde docentes y estudiantes interactúan en espacios no presenciales.", "Ver videos educativos en plataformas como YouTube.", "La digitalización de libros de texto para leer en tabletas."], answer: "El desarrollo de dinámicas de enseñanza-aprendizaje realizadas de forma virtual, donde docentes y estudiantes interactúan en espacios no presenciales.", explanation: "Correcto. El video define la educación virtual como un proceso de enseñanza-aprendizaje en espacios no presenciales." },
+                { question: "Según el video, ¿cuál es una de las principales ventajas de la educación virtual?", options: ["Requiere menos esfuerzo por parte del docente.", "Reduce los costos de internet para las familias.", "Permite a los alumnos establecer su propio ritmo de aprendizaje y fomenta el autoaprendizaje.", "Elimina la necesidad de que los estudiantes investiguen por su cuenta."], answer: "Permite a los alumnos establecer su propio ritmo de aprendizaje y fomenta el autoaprendizaje.", explanation: "Correcto. Se destaca que la educación virtual fomenta el autoaprendizaje y ritmos personalizados." },
+                { question: "¿Cuál es una de las desventajas de la educación virtual mencionada para el contexto de Honduras?", options: ["La falta de interés de los estudiantes en la tecnología.", "El exceso de docentes capacitados para la enseñanza virtual.", "La desigualdad en el acceso a internet y las limitaciones técnicas.", "La prohibición del uso de teléfonos en todas las actividades educativas."], answer: "La desigualdad en el acceso a internet y las limitaciones técnicas.", explanation: "Correcto. La desigualdad en el acceso a la tecnología es una de las principales barreras mencionadas." },
+                { question: "¿Qué incluye la definición moderna de 'datos personales' mencionada en el video?", options: ["Únicamente el nombre y la dirección de una persona.", "Solo las fotografías y videos personales.", "Las preferencias de compra en línea y el historial de navegación.", "Información como direcciones IP, datos biométricos y cookies."], answer: "Información como direcciones IP, datos biométricos y cookies.", explanation: "Correcto. La definición moderna de datos personales es amplia e incluye identificadores digitales como las direcciones IP." },
+                { question: "¿Qué son los 'metadatos' de una fotografía?", options: ["El filtro o efecto visual aplicado a la imagen.", "Los comentarios que otras personas dejan en la foto.", "Información que describe la foto, como la fecha, el dispositivo y las modificaciones.", "La cantidad de 'me gusta' que recibe en redes sociales."], answer: "Información que describe la foto, como la fecha, el dispositivo y las modificaciones.", explanation: "Correcto. Los metadatos contienen información descriptiva sobre el archivo, como fecha y dispositivo." },
+                { question: "¿Cuáles son las tres propiedades fundamentales de la información según el video?", options: ["Pública, gratuita y editable.", "Íntegra, disponible y confidencial.", "Visual, auditiva y textual.", "Temporal, relevante y compartida."], answer: "Íntegra, disponible y confidencial.", explanation: "Correcto. Las tres propiedades clave de la información son integridad, disponibilidad y confidencialidad." },
+                { question: "¿Qué derecho clave se debe ejercer antes de proporcionar datos personales?", options: ["El derecho a recibir un pago por la información.", "El derecho a preguntar para qué, dónde, por cuánto tiempo y con quién se usarán los datos.", "El derecho a publicar la información en redes sociales primero.", "El derecho a solicitar una copia impresa de los términos y condiciones."], answer: "El derecho a preguntar para qué, dónde, por cuánto tiempo y con quién se usarán los datos.", explanation: "Correcto. Es fundamental preguntar sobre el uso y protección de los datos antes de compartirlos." },
+                { question: "¿Por qué se considera riesgoso solicitar fotos o videos de niños haciendo tareas?", options: ["Porque los videos pueden ocupar mucho espacio de almacenamiento.", "Porque los niños pueden distraerse al grabarlos.", "Porque esos datos sensibles pueden ser alterados o vendidos en el mercado negro.", "Porque la calidad de la imagen puede no ser la adecuada para evaluar."], answer: "Porque esos datos sensibles pueden ser alterados o vendidos en el mercado negro.", explanation: "Correcto. El video advierte que las imágenes de menores son datos sensibles que pueden ser mal utilizados si no se protegen." },
+                { question: "¿Cuál es la diferencia principal entre 'clases virtuales' y 'clases digitales'?", options: ["Las clases virtuales usan Zoom y las digitales usan Google Meet.", "No hay ninguna diferencia, son términos intercambiables.", "Las clases virtuales se centran en la interacción en tiempo real, mientras que las digitales usan plataformas con herramientas didácticas integradas.", "Las clases digitales son solo para universitarios y las virtuales para escolares."], answer: "Las clases virtuales se centran en la interacción en tiempo real, mientras que las digitales usan plataformas con herramientas didácticas integradas.", explanation: "Correcto. Las clases virtuales son interactivas en tiempo real, mientras que las digitales se apoyan en plataformas con más herramientas." },
+                { question: "¿Cómo 'pagan' los usuarios por los servicios gratuitos de las redes sociales?", options: ["Viendo anuncios publicitarios obligatorios.", "Con su información personal, que es recopilada y utilizada por las empresas.", "Realizando micro-pagos por cada función que utilizan.", "Invitando a otros amigos a unirse a la plataforma."], answer: "Con su información personal, que es recopilada y utilizada por las empresas.", explanation: "Correcto. En los servicios 'gratuitos', los usuarios pagan con su información personal." },
+                { question: "¿Qué es la 'ingeniería social'?", options: ["El diseño de plataformas educativas más amigables.", "El estudio del comportamiento de los estudiantes en línea.", "El arte de programar aplicaciones para redes sociales.", "El arte de engañar a las personas para que revelen información confidencial."], answer: "El arte de engañar a las personas para que revelen información confidencial.", explanation: "Correcto. La ingeniería social es una técnica de manipulación para obtener información confidencial." },
+                { question: "¿Qué es el 'grooming'?", options: ["El proceso de editar y mejorar fotos antes de publicarlas.", "Un software para proteger los dispositivos de virus.", "El acoso y la manipulación de menores en línea por parte de un adulto.", "La práctica de organizar grupos de estudio virtuales."], answer: "El acoso y la manipulación de menores en línea por parte de un adulto.", explanation: "Correcto. El 'grooming' se refiere específicamente al acoso de menores por parte de adultos en línea." },
+                { question: "¿Qué es el 'ciberbullying'?", options: ["El robo de identidad en plataformas digitales.", "El acoso entre pares que se realiza utilizando medios electrónicos.", "La crítica constructiva sobre trabajos escolares en foros en línea.", "La competencia académica entre diferentes colegios a través de internet."], answer: "El acoso entre pares que se realiza utilizando medios electrónicos.", explanation: "Correcto. El ciberbullying es el acoso entre pares a través de medios electrónicos." },
+                { question: "¿Qué se recomienda hacer si una entidad no puede responder para qué y cómo protegerá tus datos?", options: ["Proporcionar la información de todas formas, pero con desconfianza.", "Denunciar a la entidad ante las autoridades inmediatamente.", "No proporcionar la información solicitada.", "Pedir un descuento o un beneficio a cambio del riesgo."], answer: "No proporcionar la información solicitada.", explanation: "Correcto. Si no hay garantías sobre la protección de datos, la recomendación es no proporcionarlos." },
+                { question: "¿Qué sugiere el expositor que deben generar los centros educativos de forma prioritaria?", options: ["Sus propias redes sociales para competir con Facebook.", "Contratos de confidencialidad y políticas claras de privacidad de datos.", "Un listado de los mejores dispositivos electrónicos para estudiantes.", "Grupos de WhatsApp para cada asignatura y grado."], answer: "Contratos de confidencialidad y políticas claras de privacidad de datos.", explanation: "Correcto. Se enfatiza la necesidad de que los centros educativos establezcan políticas claras de privacidad." },
+                { question: "¿Qué temas se sugiere añadir a la malla curricular para fortalecer la seguridad digital?", options: ["Programación avanzada y diseño de hardware.", "Marketing digital y creación de contenido viral.", "Inteligencia emocional y protección de datos personales.", "Historia de la tecnología y evolución de internet."], answer: "Inteligencia emocional y protección de datos personales.", explanation: "Correcto. Se sugiere incluir temas como inteligencia emocional y protección de datos en el currículo." },
+                { question: "Según el video, ¿por qué somos todos 'personas digitales' incluso si no usamos redes sociales?", options: ["Porque la mayoría de las personas tiene un teléfono inteligente.", "Porque nuestros datos son recopilados en servicios bancarios, gubernamentales, etc.", "Porque es una tendencia de moda autodenominarse así.", "Porque todos hemos aparecido en alguna foto o video en línea."], answer: "Porque nuestros datos son recopilados en servicios bancarios, gubernamentales, etc.", explanation: "Correcto. Somos 'personas digitales' porque nuestros datos están en múltiples sistemas, incluso sin usar redes sociales." },
+                { question: "¿Qué se critica sobre la solicitud de números de identidad sin una justificación clara?", options: ["Que es un proceso burocrático demasiado lento.", "Que es un error que vulnera la seguridad de los datos personales.", "Que es una práctica aceptable si la solicita un docente.", "Que solo es un riesgo para los adultos, no para los jóvenes."], answer: "Que es un error que vulnera la seguridad de los datos personales.", explanation: "Correcto. Solicitar datos de identidad sin justificación es una vulneración de la seguridad." },
+                { question: "¿Cuál de estos ciberdelitos se menciona que ha aumentado significativamente?", options: ["El plagio de tareas escolares.", "La piratería de software educativo.", "El sexting (intercambio de contenido sexual).", "La creación de perfiles falsos de celebridades."], answer: "El sexting (intercambio de contenido sexual).", explanation: "Correcto. El video menciona el 'sexting' como uno de los ciberdelitos que ha visto un aumento." },
+                { question: "¿Cuál es el problema principal en colegios y universidades respecto al manejo de datos?", options: ["El alto costo de los sistemas de almacenamiento de datos.", "La falta de políticas claras para proteger la información personal de los estudiantes.", "La resistencia de los estudiantes a entregar sus datos.", "La incompatibilidad entre diferentes plataformas educativas."], answer: "La falta de políticas claras para proteger la información personal de los estudiantes.", explanation: "Correcto. La falta de políticas claras de protección de datos es el problema principal señalado en instituciones educativas." }
             ],
             studentDigitalChallengeQuiz: [
                 { question: "¿Cuál de estas herramientas es mejor para crear presentaciones visuales?", options: ["Word", "Excel", "Canva", "Bloc de notas"], answer: "Canva", explanation: "Canva está diseñada específicamente para crear gráficos y presentaciones atractivas." },
@@ -638,7 +730,7 @@
             currentQuizData = quizzes[quizId];
             let title = 'Quiz';
             if (quizId === 'samrQuiz') title = 'Quiz: Modelo SAMR';
-            if (quizId === 'digitalSafetyQuiz') title = 'Examen: Seguridad Digital';
+            if (quizId === 'digitalSafetyQuiz') title = 'Examen: Seguridad Digital para Docentes';
             if (quizId === 'studentDigitalChallengeQuiz') title = 'Juego: Reto Digital';
             
             currentQuestionIndex = 0;
